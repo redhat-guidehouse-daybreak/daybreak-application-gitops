@@ -1,0 +1,28 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: patient-viewer-dev
+  namespace: patient-viewer-dev
+spec:
+  source:
+    git:
+      ref: main
+      uri: 'https://github.com/redhat-guidehouse-daybreak/Patient-Viewer.git'
+    type: Git
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+      type: Docker
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: 'patient-viewer-dev'
+        namespace: patient-viewer-dev
+      env: []
+  triggers:
+    - type: ImageChange
+      imageChange: {}
+    - type: ConfigChange
+

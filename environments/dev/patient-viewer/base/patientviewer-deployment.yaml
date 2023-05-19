@@ -1,0 +1,52 @@
+apiVersion: v1
+items:
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      alpha.image.policy.openshift.io/resolve-names: '*'
+      app.openshift.io/route-disabled: "false"
+      app.openshift.io/vcs-ref: ""
+      app.openshift.io/vcs-uri: https://github.com/redhat-guidehouse-daybreak/Patient-Viewer.git
+    labels:
+      app: patient-viewer-dev
+      app.kubernetes.io/component: patient-viewer-dev
+      app.kubernetes.io/instance: patient-viewer-dev
+      app.kubernetes.io/name: patient-viewer-dev
+      app.kubernetes.io/part-of: patient-viewer-dev
+    name: patient-viewer-dev
+    namespace: patient-viewer-dev
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: patient-viewer-dev
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: patient-viewer-dev
+          deployment: patient-viewer-dev
+      spec:
+        containers:
+        - image: image-registry.openshift-image-registry.svc:5000/patient-viewer-dev/patient-viewer-dev
+          imagePullPolicy: Always
+          name: patient-viewer-dev
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+kind: List
+metadata:
+  resourceVersion: ""
