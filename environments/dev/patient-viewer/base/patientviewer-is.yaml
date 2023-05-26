@@ -1,17 +1,17 @@
 apiVersion: image.openshift.io/v1
-  kind: ImageStream
-  metadata:
-    annotations:
-      app.openshift.io/vcs-ref: ""
-      app.openshift.io/vcs-uri: https://github.com/redhat-guidehouse-daybreak/Patient-Viewer.git
-    labels:
-      app: patient-viewer-dev
-      app.kubernetes.io/component: patient-viewer-dev
-      app.kubernetes.io/instance: patient-viewer-dev
-      app.kubernetes.io/name: patient-viewer-dev
-      app.kubernetes.io/part-of: patient-viewer-dev
-    name: patient-viewer-dev
-    namespace: patient-viewer-dev
-  spec:
-    lookupPolicy:
-      local: false
+kind: ImageStream
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: ""
+    app.openshift.io/vcs-uri: https://github.com/redhat-guidehouse-daybreak/Patient-Viewer.git
+  labels:
+    app: patient-viewer-dev
+    app.kubernetes.io/component: patient-viewer-dev
+    app.kubernetes.io/instance: patient-viewer-dev
+    app.kubernetes.io/name: patient-viewer-dev
+    app.kubernetes.io/part-of: patient-viewer-dev
+  name: patient-viewer-dev
+  namespace: patient-viewer-dev
+spec:
+  lookupPolicy:
+    local: false
