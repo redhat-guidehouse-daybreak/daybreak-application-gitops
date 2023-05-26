@@ -34,7 +34,7 @@ spec:
         deployment: patient-viewer-dev
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/patient-viewer-dev/patient-viewer-dev
+      - image: image-registry.openshift-image-registry.svc:5000/daybreak-dev/patient-viewer-dev
         imagePullPolicy: Always
         name: patient-viewer-dev
         resources: {}
