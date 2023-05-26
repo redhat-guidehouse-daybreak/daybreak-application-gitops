@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/name: patient-viewer-dev
     app.kubernetes.io/part-of: patient-viewer-git-dev
   name: patient-viewer-dev
-  namespace: patient-viewer-dev
+  namespace: daybreak-dev
 spec:
   host: patient-viewer-dev-patient-viewer-dev.apps-crc.testing
   port:

@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/name: patient-viewer-dev
     app.kubernetes.io/part-of: patient-viewer-dev
   name: patient-viewer-dev
-  namespace: patient-viewer-dev
+  namespace: daybreak-dev
 spec:
   lookupPolicy:
     local: false

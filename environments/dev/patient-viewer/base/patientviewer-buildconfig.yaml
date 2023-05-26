@@ -2,7 +2,7 @@ apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
   name: patient-viewer-dev
-  namespace: patient-viewer-dev
+  namespace: daybreak-dev
 spec:
   source:
     git:
