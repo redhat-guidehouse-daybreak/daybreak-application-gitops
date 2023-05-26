@@ -1,19 +1,4 @@
 apiVersion: argoproj.io/v1alpha1
-kind: AppProject
-metadata:
-  name: patient-viewer-dev-app
-  namespace: daybreak-gitops
-spec:
-  sourceRepos:
-    - '*'
-  destinations:
-    - namespace: '*'
-      server: '*'
-  clusterResourceWhitelist:
-    - group: '*'
-      kind: '*'
-===
-apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: patient-viewer-dev-app
