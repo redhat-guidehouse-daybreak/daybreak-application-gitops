@@ -25,4 +25,3 @@ spec:
     - type: ImageChange
       imageChange: {}
     - type: ConfigChange
-
