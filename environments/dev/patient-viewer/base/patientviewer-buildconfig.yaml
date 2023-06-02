@@ -19,8 +19,6 @@ spec:
       from:
         kind: ImageStreamTag
         name: 'patient-viewer-dev:latest'
-        namespace: daybreak-dev
-      env: []
   triggers:
     - type: ImageChange
       imageChange: {}
