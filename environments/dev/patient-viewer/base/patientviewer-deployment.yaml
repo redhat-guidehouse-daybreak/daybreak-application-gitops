@@ -3,6 +3,13 @@ kind: Deployment
 metadata:
   name: patient-viewer-dev
   namespace: daybreak-dev
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    app.openshift.io/route-disabled: 'false'
+    app.openshift.io/vcs-ref: main
+    app.openshift.io/vcs-uri: 'https://github.com/redhat-guidehouse-daybreak/Patient-Viewer.git'
+    image.openshift.io/triggers: >-
+      [{"from":{"kind":"ImageStreamTag","name":"patient-viewer-dev:latest","namespace":"daybreak-dev"},"fieldPath":"spec.template.spec.containers[?(@.name==\"patient-viewer-dev\")].image","pause":"false"}]
   labels:
     app: patient-viewer-dev
     app.kubernetes.io/component: patient-viewer-dev
