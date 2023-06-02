@@ -12,7 +12,8 @@ metadata:
 spec:
   selector:
     app: patient-viewer-dev
-    deployment: patient-viewer-dev
   ports:
-  - port: 8080
-    targetPort: 8080
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080

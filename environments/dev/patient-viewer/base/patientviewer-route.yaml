@@ -13,5 +13,9 @@ spec:
   to:
     kind: Service
     name: patient-viewer-dev
-    port:
-      targetPort: 8080
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
