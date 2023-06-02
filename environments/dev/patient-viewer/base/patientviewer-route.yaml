@@ -2,6 +2,13 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: patient-viewer-dev
+  namespace: daybreak-dev
+  labels:
+    app: patient-viewer-dev
+    app.kubernetes.io/component: patient-viewer-dev
+    app.kubernetes.io/instance: patient-viewer-dev
+    app.kubernetes.io/name: patient-viewer-dev
+    app.kubernetes.io/part-of: patient-viewer-dev
 spec:
   to:
     kind: Service
