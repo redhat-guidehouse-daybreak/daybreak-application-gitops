@@ -18,7 +18,7 @@ spec:
     sourceStrategy:
       from:
         kind: ImageStreamTag
-        name: 'patient-viewer-dev'
+        name: 'patient-viewer-dev:latest'
         namespace: daybreak-dev
       env: []
   triggers:
