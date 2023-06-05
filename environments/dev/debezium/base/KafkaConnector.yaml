@@ -1,0 +1,20 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaConnector
+metadata:
+  name: debezium-fhir-server-pgsql
+  labels:
+    strimzi.io/cluster: kafka-connect 
+spec:
+  class: 'io.debezium.connector.postgresql.PostgresConnector'
+  tasksMax: 1
+  config:
+    plugin.name: pgoutput
+    database.hostname: 'psql-fhir.fhir.svc'
+    database.port: '5432'
+    database.user: fhir
+    database.password: 'fhir'
+    database.dbname: fhir
+    database.server.name: fhir
+    schema.include.list: public
+    table.include.list: public.hfj_res_ver
+    value.converter: io.debezium.converters.CloudEventsConverter

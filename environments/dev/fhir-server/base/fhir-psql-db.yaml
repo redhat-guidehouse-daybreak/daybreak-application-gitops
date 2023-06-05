@@ -1,0 +1,125 @@
+---
+# Source: fhir-server/templates/fhir-psql-db.yaml
+kind: DeploymentConfig
+apiVersion: apps.openshift.io/v1
+metadata:
+  name: psql-fhir
+  labels:
+    app: psql-fhir
+    app.kubernetes.io/part-of: datatier
+spec:
+  strategy:
+    recreateParams:
+      post:
+        execNewPod:
+          command:
+          - /bin/bash
+          - /tmp/init-files/wait_for_postgresql.sh
+          - /tmp/init-files/create_database.sh
+          containerName: postgresql
+          volumes:
+          - init-volume
+        failurePolicy: Abort
+      timeoutSeconds: 60
+    resources: {}
+    type: Recreate
+  triggers:
+  - type: ImageChange
+    imageChangeParams:
+        automatic: true
+        containerNames:
+        - postgresql
+        from:
+          kind: ImageStreamTag
+          name: postgresql:12-el8
+          namespace: openshift
+        
+  - type: ConfigChange
+  replicas: 1
+  selector:
+    name: psql-fhir
+  template:
+    metadata:
+      labels:
+        name: psql-fhir
+        app: psql-fhir
+    spec:
+      serviceAccountName: fhir-service-user
+      containers:
+      - name: postgresql
+        image: " "
+        ports:
+            - containerPort: 5432
+              protocol: TCP
+        readinessProbe:
+            timeoutSeconds: 1
+            initialDelaySeconds: 5
+            exec:
+              command:
+                - "/bin/sh"
+                - "-i"
+                - "-c"
+                - psql -h 127.0.0.1 -U fhir -q -d fhir -c
+                  'SELECT 1'
+        livenessProbe:
+            timeoutSeconds: 1
+            initialDelaySeconds: 30
+            tcpSocket:
+              port: 5432
+        env:
+            - name: POSTGRESQL_ADMIN_PASSWORD
+              value: admin
+            - name: POSTGRESQL_USER
+              valueFrom:
+                secretKeyRef:
+                    name: psql-fhir
+                    key: database-user
+            - name: POSTGRESQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                    name: psql-fhir
+                    key: database-password
+            - name: POSTGRESQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                    name: psql-fhir
+                    key: database-name
+            - name: POSTGRESQL_SERVICE
+              value: psql-fhir
+            - name: POSTGRESQL_MAX_PREPARED_TRANSACTIONS
+              value: "100"
+            - name: POSTGRESQL_MAX_CONNECTIONS
+              value: "100"
+        resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+        volumeMounts:
+            - name: psql-fhir-data
+              mountPath: "/var/lib/pgsql/data"
+            - name: init-volume
+              mountPath: /tmp/init-files
+            - name: fhir-debezium-cm
+              mountPath: "/opt/app-root/src/postgresql-cfg/"
+        terminationMessagePath: "/dev/termination-log"
+        imagePullPolicy: IfNotPresent
+        securityContext:
+            capabilities: {}
+            privileged: false
+      volumes:
+      - name: psql-fhir-data
+        persistentVolumeClaim:
+            claimName: psql-fhir
+      - configMap:
+          defaultMode: 493
+          name: fhir-postgres-cm
+        name: init-volume
+      - configMap:
+          defaultMode: 493
+          name: fhir-debezium-cm
+        name: fhir-debezium-cm
+      restartPolicy: Always
+      dnsPolicy: ClusterFirst
