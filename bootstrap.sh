@@ -12,6 +12,15 @@ check_oc_login(){
 
   sleep 5
 }
+# check namespaces exist
+ensure_namespaces_exist(){
+  if ! oc get namespace ${ARGO_NS} > /dev/null 2>&1; then
+    echo "Creating namespace: ${ARGO_NS}"
+    oc create namespace ${ARGO_NS}
+    echo "Waiting for namespace to provision: ${ARGO_NS}"
+    sleep 5
+  fi
+}
 
 main(){
     echo "Applying overlay: ${BOOTSTRAP_DIR}"
@@ -26,5 +35,5 @@ main(){
 }
 
 check_oc_login
-
+ensure_namespaces_exist
 main
