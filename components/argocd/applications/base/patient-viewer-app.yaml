@@ -4,11 +4,11 @@ metadata:
   name: patient-viewer-dev-app
 spec:
   destination:
-    namespace: patient-viewer-dev
+    namespace: fhir-dev
     server: https://kubernetes.default.svc
   project: patient-viewer-dev-app
   source:
-    path: environments/dev/patient-viewer/overlays/default/
+    path: environments/dev/helm-charts/patient-browser
     repoURL: patch-me-see-tenant-overlays
     targetRevision: patch-me-see-tenant-overlays
   syncPolicy:
