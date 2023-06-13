@@ -9,6 +9,6 @@ version: 0.1.0
 
 dependencies:
   - name: "kafka-cluster"
-    version: "1.16.0"
-    repository: "file://../../components/charts/kafka-cluster/"
+    version: "0.1.0"
+    repository: "file://../../../../components/charts/kafka-cluster/"
  

@@ -9,6 +9,6 @@ version: 0.1.0
 
 dependencies:
   - name: "patient-browser"
-    version: "1.16.0"
-    repository: "file://../../components/charts/patient-browser/"
+    version: "0.1.0"
+    repository: "file://../../../../components/charts/patient-browser/"
  

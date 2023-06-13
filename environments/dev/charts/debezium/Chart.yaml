@@ -9,6 +9,6 @@ version: 0.1.0
 
 dependencies:
   - name: "debezium"
-    version: "1.16.0"
-    repository: "file://../../components/charts/debezium/"
+    version: "0.1.0"
+    repository: "file://../../../../components/charts/debezium/"
  
