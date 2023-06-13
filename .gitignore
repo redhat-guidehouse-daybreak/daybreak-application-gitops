@@ -1,5 +1,6 @@
 # Mac Metadata
 .DS_Store
+components/charts/*
 
 # Chart dependencies
 **/charts/*.tgz

@@ -2,7 +2,9 @@
 set -e
 
 BOOTSTRAP_DIR="bootstrap/overlays/default/"
+COMPONENTS_DIR="components"
 ARGO_NS=daybreak-gitops
+HELM_CHARTS_REPO="https://github.com/redhat-guidehouse-daybreak/openshift-fhirserver-charts"
 
 # check login
 check_oc_login(){
@@ -12,15 +14,17 @@ check_oc_login(){
 
   sleep 5
 }
-# # check namespaces exist
-# ensure_namespaces_exist(){
-#   if ! oc get namespace ${ARGO_NS} > /dev/null 2>&1; then
-#     echo "Creating namespace: ${ARGO_NS}"
-#     oc create namespace ${ARGO_NS}
-#     echo "Waiting for namespace to provision: ${ARGO_NS}"
-#     sleep 5
-#   fi
-# }
+# check namespaces exist
+download_helm_charts(){
+    echo "Downloading helm charts from ${HELM_CHARTS_REPO}"
+    git clone ${HELM_CHARTS_REPO} helm-charts
+    echo "Helm charts downloaded"
+    # copy the helm charts to the components directory
+    cp -r helm-charts/charts/ ${COMPONENTS_DIR}/charts/
+    # delete the helm charts directory
+    rm -rf helm-charts
+    
+}
 
 main(){
     echo "Applying overlay: ${BOOTSTRAP_DIR}"
@@ -35,5 +39,5 @@ main(){
 }
 
 check_oc_login
-# ensure_namespaces_exist
+download_helm_charts
 main

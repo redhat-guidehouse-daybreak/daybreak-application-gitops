@@ -1,3 +1,0 @@
-name: patient-browser
-namespace: fhir
-image: quay.io/redhat_naps_da/patient-browser
