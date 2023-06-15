@@ -4,7 +4,7 @@ metadata:
   name: patient-viewer-dev-app
 spec:
   destination:
-    namespace: fhir-dev
+    namespace: patient-browser-dev
     server: https://kubernetes.default.svc
   project: patient-viewer-dev-app
   source:
