@@ -4,7 +4,7 @@ metadata:
     name: {{ .Values.name }}
     namespace: {{ .Values.namespace}}
 spec:
-    host: {{ .Values.name }}-{{.Values.namespace}}.{{.Values.global.hubClusterDomain}}
+    host: {{ .Values.name }}-{{.Values.namespace}}
     port:
         targetPort: http
     tls:
