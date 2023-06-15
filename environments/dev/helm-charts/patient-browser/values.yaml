@@ -1,3 +1,3 @@
 name: patient-browser
-namespace: patient-browser-dev
-image: image-registry.openshift-image-registry.svc:5000/patient-browser-dev/patient-browser 
+namespace: daybreak-dev
+image: image-registry.openshift-image-registry.svc:5000/daybreak-dev/patient-browser 

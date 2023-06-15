@@ -4,7 +4,7 @@ metadata:
   name: patient-viewer-dev-app
 spec:
   destination:
-    namespace: patient-browser-dev
+    namespace: daybreak-dev
     server: https://kubernetes.default.svc
   project: patient-viewer-dev-app
   source:
