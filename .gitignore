@@ -2,7 +2,7 @@
 
 # Mac Metadata
 .DS_Store
-
+.env
 # Chart dependencies
 **/charts/*.tgz
 **/Chart.lock
