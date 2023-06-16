@@ -16,26 +16,27 @@ check_oc_login(){
   sleep 5
 }
 
-download_helm_charts(){
-  echo "Downloading helm charts from ${HELM_CHARTS_REPO}"
-  git clone ${HELM_CHARTS_REPO} helm-charts
-  echo "Helm charts downloaded"
-  # copy the helm charts to the components directory
-  cp -r helm-charts/charts/ ${COMPONENTS_DIR}/charts/
-  # delete the helm charts directory
-  rm -rf helm-charts    
-}
+#### implement a workaround for retrieving the helm charts from the helm charts repo
+# download_helm_charts(){
+#   echo "Downloading helm charts from ${HELM_CHARTS_REPO}"
+#   git clone ${HELM_CHARTS_REPO} helm-charts
+#   echo "Helm charts downloaded"
+#   # copy the helm charts to the components directory
+#   cp -r helm-charts/charts/ ${COMPONENTS_DIR}/charts/
+#   # delete the helm charts directory
+#   rm -rf helm-charts    
+# }
 
-run_helm_dependency_update(){
-  # get a list of all the helm charts
-  charts=$(ls ${COMPONENTS_DIR}/charts/)
+# run_helm_dependency_update(){
+#   # get a list of all the helm charts
+#   charts=$(ls ${COMPONENTS_DIR}/charts/)
  
-  # loop through the charts and run helm dependency update
-  for chart in ${charts}; do
-    echo "Running helm dependency update for ${chart}"
-    helm dependency update ${DEV_ENVIRONMENT_DIR}/charts/${chart}
-  done
-}
+#   # loop through the charts and run helm dependency update
+#   for chart in ${charts}; do
+#     echo "Running helm dependency update for ${chart}"
+#     helm dependency update ${DEV_ENVIRONMENT_DIR}/charts/${chart}
+#   done
+# }
 
 main(){
     echo "Applying overlay: ${BOOTSTRAP_DIR}"
@@ -50,6 +51,6 @@ main(){
 }
 
 check_oc_login
-download_helm_charts
-run_helm_dependency_update
+# download_helm_charts
+# run_helm_dependency_update
 main
