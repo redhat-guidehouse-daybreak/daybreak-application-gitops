@@ -4,4 +4,4 @@
 # Chart dependencies
 **/charts/*.tgz
 **/Chart.lock
-/.env
+.env
