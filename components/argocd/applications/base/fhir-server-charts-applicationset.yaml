@@ -22,7 +22,7 @@ spec:
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: fhir-dev
+        namespace: daybreak-gitops
       imagePullSecrets:
         - ghcr-guidehouse-secret
       
