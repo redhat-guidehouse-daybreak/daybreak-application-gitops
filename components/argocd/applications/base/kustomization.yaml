@@ -5,4 +5,4 @@ resources:
   # - daybreak-app-of-apps.yaml
   # - patient-viewer-app-proj.yaml
   # - patient-viewer-app.yaml
-  - application-set.yaml
+  - fhir-server-charts.yaml

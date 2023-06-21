@@ -1,13 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: daybreak
+  name: fhir-server-charts-dev
 spec:
   generators:
   - list:
       elements:
-      - cluster: mission-db-dev
-        url: https://api.mission-db.bf3l.p1.openshiftapps.com
+      - cluster: local
+        url: https://kubernetes.default.svc
+        values:
+          name: patient-viewer-dev
+          namespace: patient-viewer-dev
+          project: patient-viewer-dev
       # - cluster: engineering-prod
       #   url: https://2.4.6.8
       # - cluster: finance-preprod
