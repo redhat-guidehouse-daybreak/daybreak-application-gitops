@@ -2,6 +2,6 @@ apiVersion: apps.3scale.net/v1alpha1
 kind: APIManager
 metadata:
   name: apimanager-guidehouse
-  namespace: 3scale-api
+  namespace: daybreak-dev
 spec:
   wildcardDomain: daybreak.cs.guidehouse.com
