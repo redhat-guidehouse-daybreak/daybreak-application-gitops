@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: fhir-server-charts-dev
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/redhat-guidehouse-daybreak/openshift-fhirserver-charts.git
+      revision: dev
+      directories:
+        - path: charts/*
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: fhir-server-app
+      source:
+        repoURL: https://github.com/redhat-guidehouse-daybreak/openshift-fhirserver-charts.git
+        targetRevision: HEAD
+        sourceBranch: main
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: fhir-dev
+      imagePullSecrets:
+        - ghcr-guidehouse-secret
+      
