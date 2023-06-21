@@ -6,7 +6,8 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/redhat-guidehouse-daybreak/openshift-fhirserver-charts.git
-      revision: dev
+      revision: HEAD
+      branch: main
       directories:
         - path: charts/*
   template:
