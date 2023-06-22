@@ -16,7 +16,7 @@ spec:
     spec:
       project: fhir-server-app
       source:
-        repoURL: https://github.com/redhat-guidehouse-daybreak/openshift-fhirserver-charts.git
+        repoURL: placeholder-for-git-repo-url-see-overlays
         targetRevision: HEAD
         sourceBranch: main
         path: '{{path}}'

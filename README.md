@@ -1,5 +1,4 @@
 # MLOps Demo: Application GitOps
-# TODO: document using the .env file to set the environment variables used to authenticate to the GitHub repo for helm charts
 
 This repo contains resources that are deployed and managed by the application team in a gitops environment. These resources are deployed to the namespaces created by the tenant-gitops repo utilizing the ArgoCD instance created by that repo.
 
