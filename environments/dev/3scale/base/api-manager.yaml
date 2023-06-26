@@ -4,4 +4,4 @@ metadata:
   name: apimanager-guidehouse
   namespace: daybreak-dev
 spec:
-  wildcardDomain: daybreak.cs.guidehouse.com
+  wildcardDomain: patch-me 
