@@ -1,4 +1,0 @@
-name: patient-browser
-namespace: daybreak-dev
-image: image-registry.openshift-image-registry.svc:5000/daybreak-dev/patient-browser 
-hubClusterDomain: apps.mission-db.bf3l.p1.openshiftapps.com
