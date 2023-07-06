@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keycloak-app
+spec:
+  destination:
+    namespace: daybreak-dev
+    server: https://kubernetes.default.svc
+  project: 3scale-app
+  source:
+    path: environments/dev/keycloak/overlay/default
+    repoURL: patch-me-see-tenant-overlays
+    targetRevision: patch-me-see-tenant-overlays
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true

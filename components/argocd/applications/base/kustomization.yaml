@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - 3scale-app-proj.yaml
   - 3scale-app.yaml
+  - keycloak-app.ayml
   - fhir-server-app-proj.yaml
   # - daybreak-app-of-apps.yaml
   # - patient-viewer-app-proj.yaml
