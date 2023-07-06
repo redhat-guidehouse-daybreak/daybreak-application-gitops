@@ -3,3 +3,11 @@ kind: Kustomization
 
 bases:
   - ../../base
+
+patches:
+  - target:
+      group: route.openshift.io
+      version: v1
+      kind: Route
+      name: keycloak
+    path: patch-domain.yaml
