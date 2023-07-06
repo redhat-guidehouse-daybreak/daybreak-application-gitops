@@ -4,7 +4,7 @@ metadata:
   name: 3scale-app
 spec:
   destination:
-    namespace: 3scale-api
+    namespace: daybreak-dev
     server: https://kubernetes.default.svc
   project: 3scale-app
   source:
