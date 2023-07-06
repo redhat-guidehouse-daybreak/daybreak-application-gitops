@@ -28,7 +28,7 @@ spec:
             secretKeyRef:
               name: daybreak-app-secrets
               key: KEYCLOAK_ADMIN
-        - name: KEYCLOA_ADMIN_PASSWORD
+        - name: KEYCLOAK_ADMIN_PASSWORD
           valueFrom:
             secretKeyRef:
               name: daybreak-app-secrets
