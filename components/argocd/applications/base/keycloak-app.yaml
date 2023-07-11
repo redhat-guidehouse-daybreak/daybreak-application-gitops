@@ -16,7 +16,7 @@ spec:
       prune: false
       selfHeal: true
     resyncStrategy:
-        ignoreDifferences: true
+      ignoreDifferences: true
   ignoreDifferences:
   - group: route.openshift.io
     kind: Route

@@ -23,6 +23,15 @@ spec:
       destination:
         server: https://kubernetes.default.svc
         namespace: daybreak-dev
-      imagePullSecrets:
-        - name: ghcr-guidehouse-secret
+      syncPolicy:
+        automated:
+          prune: false
+          selfHeal: true
+        syncOptions:
+        - RespectIgnoreDifferences=true
+      ignoreDifferences:
+      - group: route.openshift.io
+        kind: Route
+        jsonPointers:
+          - /spec/host
       
