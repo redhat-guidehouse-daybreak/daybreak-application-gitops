@@ -6,7 +6,4 @@ resources:
   - 3scale-app.yaml
   - keycloak-app.yaml
   - fhir-server-app-proj.yaml
-  # - daybreak-app-of-apps.yaml
-  # - patient-viewer-app-proj.yaml
-  # - patient-viewer-app.yaml
   - fhir-server-charts-applicationset.yaml

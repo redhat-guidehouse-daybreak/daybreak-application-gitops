@@ -15,3 +15,11 @@ spec:
     automated:
       prune: false
       selfHeal: true
+    resyncStrategy:
+        ignoreDifferences: true
+  ignoreDifferences:
+  - group: route.openshift.io
+    kind: Route
+    name: keycloak
+    jsonPointers:
+      - /spec/host

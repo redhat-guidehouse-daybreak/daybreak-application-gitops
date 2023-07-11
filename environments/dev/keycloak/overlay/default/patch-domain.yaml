@@ -1,3 +1,0 @@
-- op: replace
-  path: /spec/host
-  value: keycloak-daybreak-dev.apps.mission-db.4qya.p1.openshiftapps.com
