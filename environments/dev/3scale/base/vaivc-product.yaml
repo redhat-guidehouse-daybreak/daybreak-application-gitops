@@ -7,7 +7,7 @@ spec:
   name: va-ivc
   systemName: va-ivc
   backendUsages:
-    vai-vc:
+    va-ivc:
       path: /
   deployment:
     apicastHosted: {}
