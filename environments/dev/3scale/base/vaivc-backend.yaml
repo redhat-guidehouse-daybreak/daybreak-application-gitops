@@ -6,4 +6,4 @@ spec:
   name: va ivc api
   privateBaseURL: 'http://va-ivc-api.daybreak-dev.svc.cluster.local:8080'
   systemName: va-ivc
-  description: backend to va ipc api
+  description: backend to va ivc api
