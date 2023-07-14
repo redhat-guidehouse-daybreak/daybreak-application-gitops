@@ -10,7 +10,6 @@ spec:
     basic:
       name: daybreak-basic
       published: true
-      appsRequireApproal: false
   backendUsages:
     va-ivc:
       path: /
