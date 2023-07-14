@@ -6,6 +6,10 @@ metadata:
 spec:
   name: va-ivc
   systemName: va-ivc
+  applicationPlans:
+    name: basic
+    published: true
+    appsRequirApproval: false
   backendUsages:
     va-ivc:
       path: /
