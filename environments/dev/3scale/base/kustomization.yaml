@@ -4,5 +4,7 @@ kind: Kustomization
 resources:
   - system-storage.yaml
   - api-manager.yaml
+  - account.yaml
   - vaivc-backend.yaml
   - vaivc-product.yaml
+  - vaivc-application.yaml

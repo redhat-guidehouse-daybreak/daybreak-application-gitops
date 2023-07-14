@@ -1,0 +1,7 @@
+apiVersion: capabilities.3scale.net/v1beta1
+kind: DeveloperAccount
+metadata:
+  name: daybreak
+  namespace: daybreak-dev
+spec:
+  orgName: daybreak
