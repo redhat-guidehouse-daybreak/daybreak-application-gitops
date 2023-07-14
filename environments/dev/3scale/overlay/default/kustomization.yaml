@@ -5,9 +5,4 @@ bases:
   - ../../base
 
 patches:
-  - target:
-      group: apps.3scale.net
-      version: v1alpha1
-      kind: APIManager
-      name: apimanager-guidehouse
-    path: patch-domain.yaml
+  - path: patch-domain.yaml

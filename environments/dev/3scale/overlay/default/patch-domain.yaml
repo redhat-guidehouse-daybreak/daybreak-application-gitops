@@ -1,3 +1,6 @@
 - op: replace
   path: /spec/wildcardDomain
   value: apps.mission-db.4qya.p1.openshiftapps.com
+- op: replace
+  path: /deployment/apicastHosted/authentication/oidc/issuerEndpoint
+  value: https://daybreak:daybreaksecret@keycloak-keycloak.apps.mission-db.4qya.p1.openshiftapps.com/realms/daybreak
