@@ -9,6 +9,14 @@ spec:
   backendUsages:
     va-ivc:
       path: /
+  policies:
+    - name: cors
+      version: builtin
+      enabled: true
+      configuration: {}
+    - name: apicast
+      version: builtin
+      enabled: true
   deployment:
     apicastHosted:
       authentication:
