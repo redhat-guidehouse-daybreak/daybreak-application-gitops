@@ -5,4 +5,15 @@ bases:
   - ../../base
 
 patches:
-  - path: patch-domain.yaml
+  - target:
+      group: apps.3scale.net
+      version: v1alpha1
+      kind: APIManager
+      name: apimanager-guidehouse
+    path: patch-domain.yaml
+  - target:
+      group: capabilities.3scale.net
+      version: v1beta1
+      kind: Product
+      name: va-ivc
+    path: patch-domain.yaml
