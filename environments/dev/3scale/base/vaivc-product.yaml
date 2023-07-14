@@ -8,7 +8,7 @@ spec:
   systemName: va-ivc
   applicationPlans:
     basic:
-      name: basic
+      name: daybreak-basic
       published: true
       appsRequireApproal: false
   backendUsages:
