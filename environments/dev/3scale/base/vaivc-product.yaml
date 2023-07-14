@@ -10,4 +10,16 @@ spec:
     va-ivc:
       path: /
   deployment:
-    apicastHosted: {}
+    apicastHosted:
+      authentication:
+        oidc:
+          issuerType: "keycloak"
+          issuerEndpoint: "https://daybreak:deysecret@mykeycloack.example.com/auth/realms/myrealm"
+          authenticationFlow:
+            standardFlowEnabled: true
+            implicitFlowEnabled: false
+            serviceAccountsEnabled: true
+            directAccessGrantsEnabled: false
+          jwtClaimWithClientID: "azp"
+          jwtClaimWithClientIDType: "plain"
+          credentials: headers
