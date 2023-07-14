@@ -7,8 +7,7 @@ spec:
   name: va-ivc
   systemName: va-ivc
   applicationPlans:
-    - name: basic
-      published: true
+    name: 'basic'
   backendUsages:
     va-ivc:
       path: /
