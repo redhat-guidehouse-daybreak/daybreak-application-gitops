@@ -7,4 +7,3 @@ resources:
   - account.yaml
   - vaivc-backend.yaml
   - vaivc-product.yaml
-  - vaivc-application.yaml
