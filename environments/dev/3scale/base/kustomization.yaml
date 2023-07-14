@@ -5,3 +5,4 @@ resources:
   - system-storage.yaml
   - api-manager.yaml
   - vaivc-backend.yaml
+  - vaivc-product.yaml

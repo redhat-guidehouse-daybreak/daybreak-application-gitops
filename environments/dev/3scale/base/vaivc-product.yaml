@@ -1,0 +1,13 @@
+apiVersion: capabilities.3scale.net/v1beta1
+kind: Product
+metadata:
+  name: va-ivc
+  namespace: daybreak-dev
+spec:
+  name: va-ivc
+  systemName: va-ivc
+  backendUsages:
+    vai-vc:
+      path: /
+  deployment:
+    apicastHosted: {}
