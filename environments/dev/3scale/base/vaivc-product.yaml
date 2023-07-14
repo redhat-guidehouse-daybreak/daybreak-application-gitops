@@ -13,6 +13,11 @@ spec:
   backendUsages:
     va-ivc:
       path: /
+  mappingRules:
+    - httpMethod: GET
+      pattern: "/"
+      increment: 1
+      metricMethodRef: hits
   policies:
     - name: cors
       version: builtin
