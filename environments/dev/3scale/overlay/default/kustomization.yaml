@@ -16,4 +16,4 @@ patches:
       version: v1beta1
       kind: Product
       name: va-ivc
-    path: patch-domain.yaml
+    path: patch-oidc-endpoint.yaml
