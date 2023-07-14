@@ -6,7 +6,6 @@ metadata:
 spec:
   name: va-ivc
   systemName: va-ivc
-  applicationPlans:
   backendUsages:
     va-ivc:
       path: /
