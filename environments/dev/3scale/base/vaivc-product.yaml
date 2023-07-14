@@ -9,7 +9,6 @@ spec:
   applicationPlans:
     name: basic
     published: true
-    appsRequirApproval: false
   backendUsages:
     va-ivc:
       path: /
