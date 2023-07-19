@@ -6,14 +6,6 @@ metadata:
 spec:
   orgName: daybreak
 ---
-apiVersion: v1
-kind: Secret
-metadata:
-  name: 3scale-developer-user-secret
-  namespace: daybreak-dev
-data:
-  password: YWRtaW4jMTIz
----
 apiVersion: capabilities.3scale.net/v1beta1
 kind: DeveloperUser
 metadata:
