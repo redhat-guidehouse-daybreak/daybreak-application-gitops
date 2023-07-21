@@ -11,9 +11,3 @@ patches:
       kind: APIManager
       name: apimanager-guidehouse
     path: patch-domain.yaml
-  - target:
-      group: capabilities.3scale.net
-      version: v1beta1
-      kind: Product
-      name: va-ivc
-    path: patch-oidc-endpoint.yaml

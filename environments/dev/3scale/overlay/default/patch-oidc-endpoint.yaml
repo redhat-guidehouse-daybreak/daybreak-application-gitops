@@ -1,3 +1,0 @@
-- op: replace
-  path: /spec/deployment/apicastHosted/authentication/oidc/issuerEndpoint
-  value: https://daybreak:FkpxTv0TY9iHGMQJBjDb4oAE5LjTBZxy@keycloak-keycloak.apps.mission-db.4qya.p1.openshiftapps.com/realms/daybreak

@@ -45,6 +45,10 @@ kubectl get secret mlops-demo-application-gitops-github-ssh-key -o jsonpath="{.d
 
 5. The secret is now available in your namespace as specified in Step 2
 
+## Custom Domain
+The default custom domain for the cluster is `apps.<cluster-name>.....openshiftapps.com`. You can get this by executing `oc describe ingresscontroller default -n openshift-ingress-operator`
+Before you run bootstrap for daybreak-application-gtops, you must update `environments/dev/3scale/overlay/default/patch-domain.yaml` with the correct domain name
+
 ## Running the Cluster Bootstrap
 
 Execute the bootstrap script to begin the installation process:
