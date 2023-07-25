@@ -1,3 +1,3 @@
 - op: replace
   path: /spec/wildcardDomain
-  value: apps.mission-db.fcjo.p1.openshiftapps.com
+  value: apps.mission-db.bf3l.p1.openshiftapps.com
