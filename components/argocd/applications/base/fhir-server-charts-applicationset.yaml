@@ -29,6 +29,7 @@ spec:
           selfHeal: true
         syncOptions:
         - RespectIgnoreDifferences=true
+        - Replace=false
       ignoreDifferences:
       - group: route.openshift.io
         kind: Route
