@@ -20,6 +20,9 @@ spec:
         targetRevision: HEAD
         sourceBranch: main
         path: '{{path}}'
+        helm:
+          values: |
+            zync_password: to-be-replaced-by-script
       destination:
         server: https://kubernetes.default.svc
         namespace: daybreak-dev
