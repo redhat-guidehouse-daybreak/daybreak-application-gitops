@@ -6,3 +6,5 @@ resources:
   - 3scale-app.yaml
   - fhir-server-app-proj.yaml
   - fhir-server-charts-applicationset.yaml
+  - kafka-namespace.yaml
+  - fhir-namespace.yaml
