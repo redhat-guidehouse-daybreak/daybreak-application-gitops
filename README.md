@@ -50,6 +50,7 @@ The default custom domain for the cluster is `apps.<cluster-name>.....openshifta
 Before you run bootstrap for daybreak-application-gtops, you must update `environments/dev/3scale/overlay/default/patch-domain.yaml` with the correct domain name
 
 ## Running the Cluster Bootstrap
+Before executing bootstrap.sh, you will need to retrieve zync user password from 3-scale. Got to 3-scale admin console, go to `daybreak` realm, get client list, and select `daybreak` client, retrieve the credential. This credential is zync password. You will be prompted to enter this credential during bootstrap.
 
 Execute the bootstrap script to begin the installation process:
 
@@ -60,12 +61,8 @@ Execute the bootstrap script to begin the installation process:
 Additional ArgoCD Application objects will be created and synced in OpenShift GitOps. You can follow the progress of the sync using the ArgoCD URL that the script will provide. This sync operation should complete in a few seconds.
 
 ## Configure 3Scale and Keycloak
-For each application that needs to be integration with 3scale, we will add 3scale backdend and product custom resource as part of helm chart. ArgoCD currently does not support helm chart lookup for existing secret value in kubernets cluster. For security reason, we can't put secret values in helm chart repo. After 3sacle product with keycloak integration is created, we will need to manually configure the keycloak service account secret. To do this, login to 3scale, select the product to be configured, go to `integration` -> `settings`, then go to `OPENID CONNECT (OIDC) BASICS` -> `OpenID Connect Issuer` section, change the url `https://daybreak:changeit@keycloak-keycloak.apps.mission-db.dusr.p1.openshiftapps.com/realms/daybreak`, change literal string `changeit` to be the actual secret for the service account `daybreak`. You can retrieve the service account password from keycloak admin console, go to realm `daybreak`, then go to Clients list and find `daybreak` client and retrieve its credential.
+You will need to promote the configuration to staging and production. Go to 3scale, select seach product, then goto `integration` -> `configuration` section, then click `Promote to Staging` and `Promote to Production` button.
 
-After the setting is changed, you will need to promote the changes to staging and production. Go to 3scale `integration` -> `configuration` section, then click `Promote to Staging` and `Promote to Production` button.
+Login to keycloak admin console, go to `daybreak` realm, go to `Clients` list and select the application client id, make sure you turn off `client authentication`. Also configure `valid redirect URL` and `web origin` accordingly.
 
-Current 3scle operator version does not support 3scale application CRD. Therefore, we will need to create application manually. To this, go to 3scale admin console, select the product, then go to `Applications` -> `Listing`, then click `Create Application` button. Select `daybreak` account, and `daybreak-basic` application plan, then provide an application name. Once the application is created, it will automatically generate a client id and client secret. This client id and secret will be automatically syn'ed to keycloak daybreak realm. 
-
-Login to keycloak admin console, go to `daybreak` realm, go to `Clients` list and select the newly created application client id, make sure you turn off `client authentication`. Also configure `valid redirect URL` and `web origin` accordingly.
-
-Last, you will need to update application helm chart, and update the referenced client id in `values.yaml` with the new client id just created.
+Last, you will need to update application helm chart, and update the referenced client id in `values.yaml` with the application's client id created by helm chart.

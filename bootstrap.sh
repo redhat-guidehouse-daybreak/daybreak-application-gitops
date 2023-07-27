@@ -39,6 +39,8 @@ check_oc_login(){
 # }
 
 main(){
+    echo "replacing zync password for keycloak"
+    ./replace-zync-password.sh
     echo "Applying overlay: ${BOOTSTRAP_DIR}"
     kustomize build ${BOOTSTRAP_DIR} | oc apply -f -
 
