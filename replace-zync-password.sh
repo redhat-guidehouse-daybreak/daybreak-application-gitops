@@ -1,5 +1,5 @@
 #!/bin/bash
-read -p "Enter the zync secret for keycloak: " SECRET_VALUE
+SECRET_VALUE=$(oc get secret zync-secret -n daybreak-gitops -o jsonpath="{.data.ZYNC_PASSWORD}" | base64 --decode)
 
 # Replace the line in the file with the secret value
 FILE_PATH="components/argocd/applications/base/fhir-server-charts-applicationset.yaml"
