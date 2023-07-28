@@ -50,7 +50,10 @@ The default custom domain for the cluster is `apps.<cluster-name>.....openshifta
 Before you run bootstrap for daybreak-application-gtops, you must update `environments/dev/3scale/overlay/default/patch-domain.yaml` with the correct domain name
 
 ## Running the Cluster Bootstrap
-Before executing bootstrap.sh, you will need to retrieve zync user password from 3-scale. Got to 3-scale admin console, go to `daybreak` realm, get client list, and select `daybreak` client, retrieve the credential. This credential is zync password. You will be prompted to enter this credential during bootstrap.
+Before executing bootstrap.sh, you need to verify the following secrets are created successfully by daybreak-tenant-gitops bootstrap -
+- ghcr-guidehouse-secret in daybreak-dev namespace
+- redhat-guidehouse-github-secret in daybreak-gitops namespace
+- zync-secret in daybreak-gitops namespace
 
 Execute the bootstrap script to begin the installation process:
 
