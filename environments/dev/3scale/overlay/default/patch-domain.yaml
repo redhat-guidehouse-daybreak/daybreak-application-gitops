@@ -1,3 +1,0 @@
-- op: replace
-  path: /spec/wildcardDomain
-  value: apps.mission-db.dusr.p1.openshiftapps.com

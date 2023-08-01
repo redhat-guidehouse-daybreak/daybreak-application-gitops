@@ -51,7 +51,6 @@ Before you run bootstrap for daybreak-application-gtops, you must update `enviro
 
 ## Running the Cluster Bootstrap
 Before executing bootstrap.sh, you need to verify the following secrets are created successfully by daybreak-tenant-gitops bootstrap -
-- ghcr-guidehouse-secret in daybreak-dev namespace
 - redhat-guidehouse-github-secret in daybreak-gitops namespace
 - zync-secret in daybreak-gitops namespace
 

@@ -3,3 +3,4 @@ kind: Kustomization
 
 bases:
   - ../../base
+  - ../../../components/argocd/applications/overlays/dev/

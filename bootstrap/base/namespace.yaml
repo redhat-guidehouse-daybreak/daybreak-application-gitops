@@ -1,0 +1,13 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: "va-ivc-dev"
+  labels:
+    name: "va-ivc-dev"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: fhir DEV
+  name: fhir-server-app-dev

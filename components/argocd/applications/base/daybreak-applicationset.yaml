@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: fhir-server-charts-dev
+  name: daybreak-dev-applicationset
 spec:
   generators:
   - git:
@@ -14,7 +14,7 @@ spec:
     metadata:
       name: '{{path.basename}}'
     spec:
-      project: fhir-server-app
+      project: daybreak-dev-app
       source:
         repoURL: placeholder-for-git-repo-url-see-overlays
         targetRevision: HEAD
@@ -38,4 +38,4 @@ spec:
         kind: Route
         jsonPointers:
           - /spec/host
-      
+    

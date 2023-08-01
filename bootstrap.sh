@@ -1,8 +1,10 @@
 #!/bin/bash
 set -e
 
-BOOTSTRAP_DIR="bootstrap/overlays/default/"
-DEV_ENVIRONMENT_DIR="environments/dev"
+read -p "Enter the which environment you want to create [dev|test]: " environment
+
+BOOTSTRAP_DIR="bootstrap/overlays/$environment/"
+DEV_ENVIRONMENT_DIR="environments/$environment"
 COMPONENTS_DIR="components"
 ARGO_NS=daybreak-gitops
 HELM_CHARTS_REPO="https://github.com/redhat-guidehouse-daybreak/openshift-fhirserver-charts"
@@ -40,7 +42,7 @@ check_oc_login(){
 
 main(){
     echo "replacing zync password for keycloak"
-    ./replace-zync-password.sh
+    ./replace-zync-password.sh $environment
     echo "Applying overlay: ${BOOTSTRAP_DIR}"
     kustomize build ${BOOTSTRAP_DIR} | oc apply -f -
 

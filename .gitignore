@@ -1,4 +1,5 @@
 # components/charts/*
+**/*-with-secret.yaml
 
 # Mac Metadata
 .DS_Store
