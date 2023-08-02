@@ -46,10 +46,10 @@ spec:
         kind: DeploymentConfig
         name: psql-fhir
         jsonPointers:
-          - /spec/template/spec/containers/image
+          - /spec/template/spec/containers/0/image
       - group: apps.openshift.io
         kind: DeploymentConfig
         name: kafdrop
         jsonPointers:
-          - /spec/template/spec/containers/image
+          - /spec/template/spec/containers/0/image
         
