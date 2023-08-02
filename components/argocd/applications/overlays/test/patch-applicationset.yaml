@@ -1,0 +1,18 @@
+- op: replace
+  path: /metadata/name
+  value: daybreak-test-applicationset
+- op: replace
+  path: /spec/template/spec/project
+  value: daybreak-test-app
+- op: replace
+  path: /spec/template/spec/source/helm/values
+  value: |
+    zync_password: to-be-replaced-by-script
+    environment: test
+- op: replace
+  path: /spec/template/spec/source/helm/valueFiles
+  value: 
+    - ../../environments/dev/{{path.basename}}/values.yaml
+- op: replace
+  path: /spec/template/spec/destination/namespace
+  value: daybreak-test

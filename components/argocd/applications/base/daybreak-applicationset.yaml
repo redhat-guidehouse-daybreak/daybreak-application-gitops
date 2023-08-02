@@ -16,20 +16,24 @@ spec:
     spec:
       project: daybreak-dev-app
       source:
-        repoURL: placeholder-for-git-repo-url-see-overlays
-        targetRevision: HEAD
+        repoURL: https://github.com/redhat-guidehouse-daybreak/openshift-fhirserver-charts.git
+        targetRevision: main
         sourceBranch: main
         path: '{{path}}'
         helm:
+          ignoreMissingValueFiles: true
+          valueFiles:
+            - ../../environments/dev/{{path.basename}}/values.yaml
           values: |
             zync_password: to-be-replaced-by-script
+            environment: dev
       destination:
         server: https://kubernetes.default.svc
         namespace: daybreak-dev
       syncPolicy:
         automated:
           prune: false
-          selfHeal: true
+          selfHeal: false
         syncOptions:
         - RespectIgnoreDifferences=true
         - Replace=false
@@ -38,4 +42,14 @@ spec:
         kind: Route
         jsonPointers:
           - /spec/host
-    
+      - group: apps.openshift.io
+        kind: DeploymentConfig
+        name: psql-fhir
+        jsonPointers:
+          - /spec/template/spec/containers/image
+      - group: apps.openshift.io
+        kind: DeploymentConfig
+        name: kafdrop
+        jsonPointers:
+          - /spec/template/spec/containers/image
+        

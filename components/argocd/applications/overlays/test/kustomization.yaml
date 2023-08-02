@@ -10,5 +10,10 @@ patches:
   - target:
       group: argoproj.io
       version: v1alpha1
+      kind: AppProject
+    path: patch-app-proj.yaml
+  - target:
+      group: argoproj.io
+      version: v1alpha1
       kind: ApplicationSet
     path: patch-applicationset-with-secret.yaml

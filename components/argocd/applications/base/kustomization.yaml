@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
   - daybreak-app-proj.yaml
-  - daybreak-applicationset-with-secret.yaml
+  - daybreak-applicationset.yaml

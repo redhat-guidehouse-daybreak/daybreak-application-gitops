@@ -1,0 +1,5 @@
+- op: replace
+  path: /spec/template/spec/source/helm/values
+  value: |
+    zync_password: to-be-replaced-by-script
+    environment: dev
